@@ -1,0 +1,29 @@
+{
+  "name": "dev-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "author": "rakshixh",
+  "description": "A developer's portfolio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakshixh/dev-portfolio-template"
+  },
+  "scripts": {
+    "dev": "next dev --webpack --hostname 0.0.0.0",
+    "build": "next build --webpack",
+    "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "next": "^16.4.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0",
+    "prettier": "^3.0.0"
+  }
+}
