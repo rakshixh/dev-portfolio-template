@@ -1,0 +1,278 @@
+@use '../../styles/variables' as t;
+
+.eyebrow {
+  font-family: t.$font-mono;
+  letter-spacing: 0.11em;
+  font-size: t.$text-xs;
+}
+
+.experience {
+  padding: 7rem var(--gutter) 8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.experienceIntro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5rem 0 4rem;
+}
+
+.experienceIntro h2 {
+  margin: 0;
+  font-family: t.$font-display;
+  font-size: clamp(3.7rem, 8.1vw, 7.4rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.experienceIntro h2 span {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.experienceIntro p {
+  max-width: 19rem;
+  margin: 0 0 0.4rem 2rem;
+  color: var(--muted);
+  font-size: t.$text-sm;
+  line-height: 1.8;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.experienceIntro {
+  margin-bottom: 5rem;
+}
+
+.experienceIntro h2 {
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.timeline {
+  position: relative;
+  margin-left: 24%;
+  border-top: 1px solid var(--line);
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  padding: 2.3rem 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.timelineDate {
+  padding-top: 0.4rem;
+  font-family: t.$font-mono;
+  color: var(--accent);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
+
+.timelineBody {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.timelineBody h3 {
+  margin: 0;
+  font-family: t.$font-display;
+  font-size: t.$text-xl;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.timelineBody div > span {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: t.$text-xs;
+}
+
+.timelineBody p {
+  max-width: 18rem;
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: t.$text-xs;
+  line-height: 1.8;
+}
+
+.timelineDot {
+  position: absolute;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--accent);
+  border-radius: 50%;
+  left: -1.65rem;
+  top: 2.9rem;
+  box-shadow: 0 0 1rem var(--accent);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1.45rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.toolkit {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 1rem 7%;
+  background: var(--surface);
+  padding: 3rem;
+  margin: 6rem 0 0 24%;
+}
+
+.toolkit h3 {
+  margin: 1.3rem 0 0;
+  font-family: t.$font-display;
+  font-size: t.$text-2xl;
+  line-height: 1.2;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.toolkit h3 span {
+  color: var(--accent);
+}
+
+.toolkit > p {
+  margin: 1.4rem 0 0;
+  color: var(--muted);
+  font-size: t.$text-xs;
+  line-height: 1.9;
+}
+
+.toolkitTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  grid-column: 1 / -1;
+  margin-top: 1.5rem;
+}
+
+.toolkitTags span {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  font-size: 0.65rem;
+}
+
+.toolkitTags i {
+  color: var(--accent);
+  font-family: t.$font-mono;
+  font-size: 0.55rem;
+  font-style: normal;
+}
+
+.contactBody .eyebrow {
+  color: var(--contact-muted);
+}
+
+@media (min-width: 100rem) {
+  .experience {
+    padding-left: max(var(--gutter), calc((100vw - #{t.$content-width}) / 2));
+    padding-right: max(var(--gutter), calc((100vw - #{t.$content-width}) / 2));
+  }
+}
+
+@media (max-width: 850px) {
+  .timeline {
+    margin-left: 12%;
+  }
+
+  .toolkit {
+    margin-left: 12%;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .experienceIntro {
+    display: block;
+    margin: 3.7rem 0 2.7rem;
+  }
+
+  .experienceIntro h2 {
+    font-size: clamp(3.5rem, 15vw, 5rem);
+  }
+
+  .experienceIntro p {
+    margin: 1.4rem 0 0;
+    max-width: 21rem;
+  }
+
+  .timeline {
+    margin-left: 0.65rem;
+    padding-left: 1.4rem;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timelineRow {
+    display: block;
+    padding: 1.7rem 0;
+  }
+
+  .timelineDate {
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+
+  .timelineBody {
+    display: block;
+  }
+
+  .timelineBody h3 {
+    font-size: 1.2rem;
+  }
+
+  .timelineBody p {
+    margin-top: 0.9rem;
+  }
+
+  .timelineDot {
+    left: -1rem;
+    top: 2.25rem;
+  }
+
+  .toolkit {
+    margin: 3.5rem 0 0;
+    padding: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .toolkit h3 {
+    font-size: 1.6rem;
+  }
+
+  .toolkit > p {
+    margin-top: 0.5rem;
+  }
+
+  .toolkitTags {
+    grid-column: auto;
+  }
+}

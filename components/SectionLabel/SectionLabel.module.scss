@@ -1,0 +1,48 @@
+@use '../../styles/variables' as t;
+
+.sectionLabel {
+  font-family: t.$font-mono;
+  letter-spacing: 0.11em;
+  font-size: t.$text-xs;
+}
+
+@media (max-width: 600px) {
+  .sectionLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--muted);
+    font-size: 0.62rem;
+  }
+
+  .sectionLabel > span:first-child {
+    color: var(--accent);
+  }
+
+  .sectionLabel i {
+    width: 2.4rem;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .sectionLabel[data-variant='contact'] {
+    color: var(--contact-muted);
+
+    > span:first-child {
+      color: var(--contact-muted);
+    }
+
+    i {
+      background: var(--contact-line);
+    }
+  }
+
+  .sectionLabel {
+    font-size: 0.53rem;
+    gap: 0.55rem;
+  }
+
+  .sectionLabel i {
+    width: 1.4rem;
+  }
+}

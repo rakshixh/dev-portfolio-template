@@ -1,0 +1,85 @@
+@use '../../styles/variables' as t;
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.resumeBackdrop {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(var(--black-rgb), 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: pop 0.2s ease-out;
+}
+
+.resumeDialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 65rem);
+  height: min(90vh, 60rem);
+  height: min(90dvh, 60rem);
+  overflow: hidden;
+  background: var(--resume-paper);
+  color: var(--resume-ink);
+  box-shadow: 0 2rem 6rem rgba(var(--black-rgb), 0.5);
+}
+
+.resumeActions {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(var(--resume-paper-rgb), 0.93);
+  border-bottom: 1px solid rgba(var(--ink-rgb), 0.13);
+}
+
+.resumeActions button,
+.resumeActions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(var(--resume-ink-rgb), 0.33);
+  border-radius: 99px;
+  padding: 0.65rem 0.9rem;
+  color: var(--resume-ink);
+  background: transparent;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.resumeActions a {
+  color: var(--resume-paper);
+  border-color: var(--resume-ink);
+  background: var(--resume-ink);
+}
+
+.resumeFrame {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: var(--paper);
+}
+
+@media print {
+  .resumeBackdrop {
+    display: none !important;
+  }
+}

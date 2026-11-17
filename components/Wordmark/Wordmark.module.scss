@@ -1,0 +1,27 @@
+@use '../../styles/variables' as t;
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  font-size: t.$text-sm;
+}
+
+.wordmark {
+  color: var(--paper);
+  font-family: t.$font-display;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.1em;
+  line-height: 1;
+  transition: color 0.25s;
+}
+
+.brand:hover .wordmark {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .wordmark {
+    font-size: 1.55rem;
+  }
+}

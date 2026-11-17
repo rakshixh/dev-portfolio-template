@@ -1,0 +1,104 @@
+@use '../../styles/variables' as t;
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.themeDock {
+  position: fixed;
+  z-index: 20;
+  right: 1.25rem;
+  bottom: 1.25rem;
+}
+
+.themeButton {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(244, 240, 232, 0.2);
+  border-radius: 99px;
+  background: rgba(32, 30, 26, 0.92);
+  padding: 0.75rem 1rem;
+  color: var(--paper);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0.5rem 2rem rgba(var(--black-rgb), 0.32);
+  cursor: pointer;
+  font-size: t.$text-xs;
+}
+
+.themeButton b {
+  font-size: t.$text-lg;
+  font-weight: 400;
+  line-height: 0.7;
+}
+
+.swatch,
+.themeDots i,
+.themePanel i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.themeDots {
+  display: flex;
+  gap: 0.2rem;
+  margin-left: 0.25rem;
+}
+
+.themePanel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.7rem);
+  width: 13rem;
+  padding: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--surface-raised);
+  box-shadow: 0 1rem 3rem rgba(var(--black-rgb), 0.45);
+  animation: pop 0.25s t.$ease-out;
+}
+
+.themePanel button {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.8rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--paper);
+  background: transparent;
+  text-align: left;
+  font-size: t.$text-xs;
+  cursor: pointer;
+}
+
+.themePanel button:hover {
+  background: rgba(var(--white-rgb), 0.05);
+}
+
+.themePanel button span {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .themeDock {
+    right: 0.65rem;
+    bottom: 0.65rem;
+  }
+
+  .themeButton {
+    padding: 0.65rem 0.8rem;
+  }
+}

@@ -1,0 +1,257 @@
+@use '../../styles/variables' as t;
+
+.arrow {
+  vertical-align: middle;
+}
+
+.header {
+  height: 5.75rem;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2.8vw, 3.25rem);
+}
+
+.nav > a {
+  font-size: t.$text-xs;
+  color: var(--soft);
+  transition: color 0.25s;
+}
+
+.nav > a:hover {
+  color: var(--accent);
+}
+
+.nav .arrow {
+  margin-left: 0.25rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover .arrow {
+  opacity: 1;
+}
+
+.nav .navEmail {
+  display: none;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileActions {
+  display: none;
+}
+
+.headerCta {
+  border: 1px solid var(--line);
+  padding: 0.8rem 1.15rem;
+  border-radius: 99px;
+  font-size: t.$text-xs;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
+}
+
+.headerResume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--accent);
+  border-radius: 99px;
+  padding: 0.8rem 1.15rem;
+  color: var(--ink);
+  background: var(--accent);
+  font-size: t.$text-xs;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    color 0.2s;
+}
+
+.headerResume:hover {
+  color: var(--accent);
+  background: transparent;
+  transform: translateY(-2px);
+}
+
+.headerCta:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.headerCta .arrow {
+  margin-left: 0.6rem;
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: 0;
+}
+
+@media (max-width: 850px) {
+  .header {
+    height: 5rem;
+  }
+
+  .nav {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--ink);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6rem var(--gutter) 4rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.6rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+    transition:
+      opacity 0.35s,
+      transform 0.35s,
+      visibility 0.35s;
+  }
+
+  .navOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav > a:not(.navEmail) {
+    font-family: t.$font-display;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.06em;
+    color: var(--paper);
+    opacity: 0;
+    transform: translateY(0.8rem);
+    transition:
+      opacity 0.4s,
+      transform 0.4s;
+    transition-delay: calc(var(--i) * 60ms + 80ms);
+  }
+
+  .navOpen > a:not(.navEmail) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav .arrow {
+    opacity: 1;
+    color: var(--accent);
+    width: 1.1rem;
+    height: 1.1rem;
+    vertical-align: middle;
+  }
+
+  .nav .navEmail {
+    display: block;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: t.$text-sm;
+  }
+
+  .headerActions {
+    display: none;
+  }
+
+  .mobileActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: min(100%, 22rem);
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(0.8rem);
+    transition:
+      opacity 0.4s,
+      transform 0.4s;
+    transition-delay: 0.32s;
+  }
+
+  .navOpen .mobileActions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobileActions a,
+  .mobileActions button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 99px;
+    padding: 0.9rem 1.15rem;
+    font-size: t.$text-sm;
+    cursor: pointer;
+  }
+
+  .mobileTalk {
+    border: 1px solid var(--line);
+    color: var(--paper);
+    background: transparent;
+  }
+
+  .mobileResume {
+    border: 1px solid var(--accent);
+    color: var(--ink);
+    background: var(--accent);
+  }
+
+  .menuToggle {
+    width: 2.7rem;
+    height: 2.7rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .menuToggle span {
+    width: 0.9rem;
+    height: 1px;
+    background: var(--paper);
+    transition: transform 0.25s;
+  }
+
+  .menuActive span:first-child {
+    transform: translateY(0.18rem) rotate(45deg);
+  }
+
+  .menuActive span:last-child {
+    transform: translateY(-0.18rem) rotate(-45deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding-right: 1rem;
+  }
+}

@@ -1,0 +1,9 @@
+@use '../../styles/variables' as t;
+
+.arrow {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  vertical-align: middle;
+  flex: none;
+}

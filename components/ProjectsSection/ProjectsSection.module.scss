@@ -1,0 +1,137 @@
+@use '../../styles/variables' as t;
+
+.arrow {
+  vertical-align: middle;
+}
+
+.projectNote > span:first-child {
+  font-family: t.$font-mono;
+  letter-spacing: 0.11em;
+  font-size: t.$text-xs;
+}
+
+.work {
+  padding: 7rem var(--gutter) 8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.workIntro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5rem 0 4rem;
+}
+
+.workIntro h2 {
+  margin: 0;
+  font-family: t.$font-display;
+  font-size: clamp(3.7rem, 8.1vw, 7.4rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.workIntro h2 span {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.workIntro p {
+  max-width: 19rem;
+  margin: 0 0 0.4rem 2rem;
+  color: var(--muted);
+  font-size: t.$text-sm;
+  line-height: 1.8;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5.5rem 2rem;
+}
+
+.projectGrid > div:last-child {
+  grid-column: 1 / 2;
+}
+
+.projectNote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-top: 5rem;
+  padding-top: 1.3rem;
+  color: var(--muted);
+}
+
+.projectNote > span:first-child {
+  font-size: 0.58rem;
+}
+
+.projectNote > span:last-child {
+  font-size: t.$text-xs;
+}
+
+.projectNote a {
+  color: var(--accent);
+}
+
+.projectNote .arrow {
+  margin-left: 0.3rem;
+}
+
+@media (min-width: 100rem) {
+  .work {
+    padding-left: max(var(--gutter), calc((100vw - #{t.$content-width}) / 2));
+    padding-right: max(var(--gutter), calc((100vw - #{t.$content-width}) / 2));
+  }
+}
+
+@media (max-width: 850px) {
+  .projectOffset {
+    --reveal-from: 1.5rem;
+    --reveal-to: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .work {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .workIntro {
+    display: block;
+    margin: 3.7rem 0 2.7rem;
+  }
+
+  .workIntro h2 {
+    font-size: clamp(3.5rem, 15vw, 5rem);
+  }
+
+  .workIntro p {
+    margin: 1.4rem 0 0;
+    max-width: 21rem;
+  }
+
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .projectGrid > div:last-child {
+    grid-column: auto;
+  }
+
+  .projectNote {
+    margin-top: 3rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .projectNote > span:last-child {
+    font-size: 0.75rem;
+  }
+}

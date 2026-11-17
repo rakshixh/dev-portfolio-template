@@ -1,0 +1,75 @@
+@use '../../styles/variables' as t;
+
+.arrow {
+  vertical-align: middle;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+.footer > span {
+  font-family: t.$font-mono;
+  letter-spacing: 0.11em;
+  font-size: t.$text-xs;
+}
+
+.footer .arrow {
+  margin-left: 0.3rem;
+}
+
+.footer {
+  min-height: 7rem;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer > div {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer > div a {
+  color: var(--muted);
+  font-size: t.$text-xs;
+  transition: color 0.2s;
+}
+
+.footer > div button {
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  background: none;
+  font-size: t.$text-xs;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer > div button:hover {
+  color: var(--accent);
+}
+
+.footer > span {
+  color: var(--muted);
+  font-size: 0.55rem;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer > div {
+    gap: 1rem;
+  }
+
+  .footer > span {
+    width: 100%;
+  }
+}

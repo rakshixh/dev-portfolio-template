@@ -1,0 +1,72 @@
+@use '../../styles/variables' as t;
+
+.customCursor {
+  --cursor-accent: var(--cursor-header-accent);
+  --cursor-ring: var(--cursor-header-ring);
+  --cursor-x: -100px;
+  --cursor-y: -100px;
+  position: fixed;
+  z-index: 100;
+  top: var(--cursor-y);
+  left: var(--cursor-x);
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--cursor-ring);
+  border-radius: 50%;
+  background: var(--cursor-fill);
+  box-shadow: 0 0 1.2rem rgba(var(--accent-rgb), 0.16);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s t.$ease-out,
+    height 0.25s t.$ease-out,
+    background 0.25s,
+    border-color 0.25s;
+}
+
+.customCursor::before {
+  content: '';
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px solid var(--cursor-accent);
+  border-radius: 50%;
+  transform: rotate(-35deg) scaleX(0.42);
+}
+
+.customCursor span {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: var(--cursor-accent);
+  box-shadow: 0 0 0.6rem var(--cursor-accent);
+}
+
+.customCursor[data-section='work'] {
+  --cursor-accent: var(--cursor-work-accent);
+  --cursor-ring: var(--cursor-work-ring);
+}
+
+.customCursor[data-section='about'] {
+  --cursor-accent: var(--cursor-about-accent);
+  --cursor-ring: var(--cursor-about-ring);
+}
+
+.customCursor[data-section='experience'] {
+  --cursor-accent: var(--cursor-experience-accent);
+  --cursor-ring: var(--cursor-experience-ring);
+}
+
+.customCursor[data-section='contact'] {
+  --cursor-accent: var(--cursor-contact-accent);
+  --cursor-ring: var(--cursor-contact-ring);
+  background: var(--cursor-fill-contact);
+  box-shadow: 0 0 1.2rem rgba(var(--ink-rgb), 0.18);
+}
+
+.cursorHover {
+  width: 3.2rem;
+  height: 3.2rem;
+  background: rgba(var(--accent-rgb), 0.13);
+}
